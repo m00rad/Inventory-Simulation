@@ -28,8 +28,8 @@ namespace InventorySimulation
 
         private void showPerformance_Load(object sender, EventArgs e)
         {
-            label3.Text = TShortageQuantityAverage.ToString();
-            label6.Text = TEndingInventoryAverage.ToString();
+            AveShQuantityVal.Text = TShortageQuantityAverage.ToString();
+            AveEndInventoryVal.Text = TEndingInventoryAverage.ToString();
         }
     }
 }

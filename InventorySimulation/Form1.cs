@@ -21,7 +21,12 @@ namespace InventorySimulation
         {
 
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void ClearDataGridView()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Dock = DockStyle.Fill;
+        }
+        private void PerFormBtn_Click(object sender, EventArgs e)
         {
             
             if (CaseIsSimulated)
@@ -41,7 +46,7 @@ namespace InventorySimulation
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SimulationBtn_Click(object sender, EventArgs e)
         {
             if (TestCasePath == "")
             {
@@ -52,16 +57,24 @@ namespace InventorySimulation
             {
                 CaseIsSimulated = true;
                 simulationSystem = new SimulationSystem(TestCasePath);
-                string result = TestingManager.Test(simulationSystem, TestCaseName);
-                MessageBox.Show(result);
                 dataGridView1.DataSource = simulationSystem.SimulationTable;
                 dataGridView1.Dock = DockStyle.Fill;
                 Controls.Add(dataGridView1);
+                string result = TestingManager.Test(simulationSystem, TestCaseName);
+                MessageBox.Show(result);
             }
         }
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearDataGridView();
+            combTestCase.SelectedIndex = -1;
+            combTestCase.SelectedText = "";
+            CaseIsSimulated = false;
         }
     }
 }

@@ -25,10 +25,10 @@ namespace InventorySimulation
         public string TestCaseName;
         private void combTestCase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            simulationSystem.DemandDistribution.Clear();
+           /* simulationSystem.DemandDistribution.Clear();
             simulationSystem.LeadDaysDistribution.Clear();
             simulationSystem.SimulationTable.Clear();
-            Controls.Remove(dataGridView1);
+            Controls.Remove(dataGridView1);*/
             if (combTestCase.SelectedIndex == 0)
             {
                 TestCaseName = Constants.FileNames.TestCase1;
@@ -61,10 +61,10 @@ namespace InventorySimulation
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PerFormBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.combTestCase = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SimulationBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cycleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,26 +78,29 @@ namespace InventorySimulation
             this.randomLeadDaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leadDaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.simulationCaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simulationCaseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // PerFormBtn
             // 
-            this.button2.Location = new System.Drawing.Point(1204, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 59);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Performance Measures";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.PerFormBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PerFormBtn.Location = new System.Drawing.Point(1204, 360);
+            this.PerFormBtn.Name = "PerFormBtn";
+            this.PerFormBtn.Size = new System.Drawing.Size(133, 59);
+            this.PerFormBtn.TabIndex = 9;
+            this.PerFormBtn.Text = "Performance Measures";
+            this.PerFormBtn.UseVisualStyleBackColor = true;
+            this.PerFormBtn.Click += new System.EventHandler(this.PerFormBtn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1255, 102);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1242, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(72, 15);
             this.label1.TabIndex = 8;
             this.label1.Text = "Test case ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -117,15 +120,16 @@ namespace InventorySimulation
             this.combTestCase.TabIndex = 7;
             this.combTestCase.SelectedIndexChanged += new System.EventHandler(this.combTestCase_SelectedIndexChanged);
             // 
-            // button1
+            // SimulationBtn
             // 
-            this.button1.Location = new System.Drawing.Point(1234, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 46);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Simulate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SimulationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SimulationBtn.Location = new System.Drawing.Point(1205, 211);
+            this.SimulationBtn.Name = "SimulationBtn";
+            this.SimulationBtn.Size = new System.Drawing.Size(120, 53);
+            this.SimulationBtn.TabIndex = 6;
+            this.SimulationBtn.Text = "Simulate";
+            this.SimulationBtn.UseVisualStyleBackColor = true;
+            this.SimulationBtn.Click += new System.EventHandler(this.SimulationBtn_Click);
             // 
             // dataGridView1
             // 
@@ -232,15 +236,27 @@ namespace InventorySimulation
             // 
             this.simulationCaseBindingSource.DataSource = typeof(InventoryModels.SimulationCase);
             // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.Location = new System.Drawing.Point(1225, 293);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(89, 29);
+            this.ClearBtn.TabIndex = 10;
+            this.ClearBtn.Text = "Clear";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1368, 617);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1362, 617);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.PerFormBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.combTestCase);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SimulationBtn);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Simulation System";
@@ -254,10 +270,10 @@ namespace InventorySimulation
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button PerFormBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox combTestCase;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SimulationBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource simulationCaseBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayDataGridViewTextBoxColumn;
@@ -271,5 +287,6 @@ namespace InventorySimulation
         private System.Windows.Forms.DataGridViewTextBoxColumn orderQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn randomLeadDaysDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn leadDaysDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }
