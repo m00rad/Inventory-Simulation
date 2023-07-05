@@ -25,10 +25,6 @@ namespace InventorySimulation
         public string TestCaseName;
         private void combTestCase_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* simulationSystem.DemandDistribution.Clear();
-            simulationSystem.LeadDaysDistribution.Clear();
-            simulationSystem.SimulationTable.Clear();
-            Controls.Remove(dataGridView1);*/
             if (combTestCase.SelectedIndex == 0)
             {
                 TestCaseName = Constants.FileNames.TestCase1;
