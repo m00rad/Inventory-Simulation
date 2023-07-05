@@ -156,52 +156,27 @@ namespace InventoryModels
             }
         }
 
-
-        
         public void readFile(string path)
         {
             try
             {
-
                 StreamReader sr = new StreamReader(path);
                 string data = sr.ReadLine();
 
                 while (data != null)
                 {
                     if (data == "OrderUpTo")
-                    {
-
                         OrderUpTo = int.Parse(sr.ReadLine());
-
-                    }
                     else if (data == "ReviewPeriod")
-                    {
-
                         ReviewPeriod = int.Parse(sr.ReadLine());
-
-                    }
                     else if (data == "StartLeadDays")
-                    {
-
                         StartLeadDays = int.Parse(sr.ReadLine());
-
-                    }
                     else if (data == "StartInventoryQuantity")
-                    {
-
                         StartInventoryQuantity = int.Parse(sr.ReadLine());
-                    }
                     else if (data == "StartOrderQuantity")
-                    {
-
                         StartOrderQuantity = int.Parse(sr.ReadLine());
-                    }
                     else if (data == "NumberOfDays")
-                    {
-
                         NumberOfDays = int.Parse(sr.ReadLine());
-
-                    }
                     else if (data == "DemandDistribution")
                     {
                         Distribution dis;
